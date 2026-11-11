@@ -44,6 +44,7 @@ export function ButtonLink({
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   useEffect(() => {
     setOpen(null);
@@ -59,6 +60,13 @@ export function Header() {
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
   }, []);
+  useEffect(() => {
+    if (location.pathname !== "/") return;
+    const update = () => setScrolled(window.scrollY > 30);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [location.pathname]);
   return (
     <>
       <a href="#main" className="skip-link">
@@ -75,7 +83,10 @@ export function Header() {
           <Phone size={12} /> +91 90054 62229
         </a>
       </div>
-      <header className="header" onMouseLeave={() => setOpen(null)}>
+      <header
+        className={`header${location.pathname === "/" ? " header-over-hero" : ""}${scrolled ? " is-scrolled" : ""}`}
+        onMouseLeave={() => setOpen(null)}
+      >
         <div className="nav-inner">
           <Link to="/" aria-label="T.S. Mishra University home" className="brand">
             <img src="/images/logo.png" alt="T.S. Mishra University" width="195" height="58" />
