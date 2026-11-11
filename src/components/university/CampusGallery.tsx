@@ -1,6 +1,6 @@
 import { useId, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { Link } from "./Link";
 
 const photographs = [
@@ -162,11 +162,23 @@ function GalleryPhotograph({ photo }: { photo: (typeof photographs)[number] }) {
 }
 
 export function CampusGallery() {
+  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   return (
     <section
       id="campus-life"
       className="campus-gallery-section"
       aria-labelledby="campus-gallery-title"
+      onPointerMove={(event) => {
+        if (event.pointerType !== "mouse") return;
+        const sectionBounds = event.currentTarget.getBoundingClientRect();
+        const overCard = (event.target as HTMLElement).closest(".campus-gallery-card") !== null;
+        setCursor({
+          x: event.clientX - sectionBounds.left,
+          y: event.clientY - sectionBounds.top,
+          visible: overCard,
+        });
+      }}
+      onPointerLeave={() => setCursor((current) => ({ ...current, visible: false }))}
     >
       <div className="container">
         <div className="campus-gallery-heading" data-reveal>
@@ -191,6 +203,13 @@ export function CampusGallery() {
           ))}
         </div>
       </div>
+      <span
+        className={`campus-gallery-cursor${cursor.visible ? " is-visible" : ""}`}
+        style={{ left: cursor.x, top: cursor.y }}
+        aria-hidden="true"
+      >
+        <GraduationCap size={22} strokeWidth={1.8} />
+      </span>
     </section>
   );
 }

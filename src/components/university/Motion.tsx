@@ -24,6 +24,40 @@ export function MotionProvider({ children }: { children: ReactNode }) {
           scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
         });
       }
+      const overviewCurtain = root.current?.querySelector<HTMLElement>(".overview-curtain");
+      if (overviewCurtain) {
+        const panels = overviewCurtain.querySelectorAll<HTMLElement>(".overview-curtain-panel");
+        gsap.fromTo(
+          panels,
+          { scaleX: 1 },
+          {
+            scaleX: 0,
+            ease: "none",
+            transformOrigin: (index) => index === 0 ? "left center" : "right center",
+            stagger: 0.035,
+            scrollTrigger: {
+              trigger: ".university-overview",
+              start: "top 88%",
+              end: "top 38%",
+              scrub: 0.6,
+            },
+          },
+        );
+        const seam = overviewCurtain.querySelector<HTMLElement>(".overview-curtain-seam");
+        if (seam) {
+          gsap.to(seam, {
+            autoAlpha: 0,
+            scaleY: 0.6,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".university-overview",
+              start: "top 88%",
+              end: "top 55%",
+              scrub: 0.5,
+            },
+          });
+        }
+      }
       gsap.utils.toArray<HTMLElement>("[data-counter]").forEach((el) => {
         const value = { current: 0 };
         const target = Number(el.dataset["counter"]);
@@ -38,6 +72,32 @@ export function MotionProvider({ children }: { children: ReactNode }) {
           },
         });
       });
+      const schoolFeatureCards = gsap.utils.toArray<HTMLElement>("[data-school-feature-card]");
+      if (schoolFeatureCards.length) {
+        gsap.fromTo(
+          schoolFeatureCards,
+          {
+            y: 110,
+            x: (index) => index === 0 ? -55 : index === 1 ? 0 : 55,
+            scale: 0.88,
+            autoAlpha: 0.25,
+          },
+          {
+            y: 0,
+            x: 0,
+            scale: 1,
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.16,
+            scrollTrigger: {
+              trigger: ".school-feature-cards",
+              start: "top 88%",
+              end: "center 45%",
+              scrub: 0.7,
+            },
+          },
+        );
+      }
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.fromTo(
           el,

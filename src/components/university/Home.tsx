@@ -2,6 +2,7 @@ import { CampusGallery } from "./CampusGallery";
 import { SectionTitle, SchoolGrid } from "./Collections";
 import { EventsShowcase } from "./EventsShowcase";
 import { Link } from "./Link";
+import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
@@ -21,74 +22,94 @@ import { OpeningIntro } from "./OpeningIntro";
 import { AdmissionsPopup } from "./AdmissionsPopup";
 import university from "../../data/university.json";
 function Testimonials() {
-  const [index, setIndex] = useState(0);
   const testimonials = [
-    {
-      name: "Shefali Awasthi",
-      quote: "The library is a reliable place when exams are near.",
-      summary:
-        "Shefali values the quiet study environment, book collection, and spaces to relax between classes.",
-    },
-    {
-      name: "Tanisha Gupta",
-      quote: "I feel privileged to study at T. S MISHRA UNIVERSITY.",
-      summary:
-        "Tanisha highlights supportive faculty and an education grounded in ethical, compassionate care.",
-    },
-    {
-      name: "Avyay Sagar Sharma",
-      quote: "The lecture halls are actually good to sit in for long hours.",
-      summary:
-        "Avyay appreciates the well-lit lecture halls, audiovisual systems, and hands-on laboratory exposure.",
-    },
+    { name: "Shefali Awasthi", course: "Student · 2024 batch", topic: "LIBRARY & STUDY", image: "campus-gallery-library.webp", alt: "Students studying in the T.S. Mishra University library", summary: "She values the quiet library, useful book collection and comfortable spaces to study, especially near exams." },
+    { name: "Tanisha Gupta", course: "Student · 2024 batch", topic: "STUDENT EXPERIENCE", image: "hero-academics-official.webp", alt: "A student carrying out laboratory work at T.S. Mishra University", summary: "She appreciates the faculty support and a curriculum shaped around ethical, compassionate care." },
+    { name: "Avyay Sagar Sharma", course: "Student · 2024 batch", topic: "LEARNING SPACES", image: "campus-gallery-classroom.webp", alt: "Students in a lecture theatre at T.S. Mishra University", summary: "He highlights well-lit lecture halls, useful classroom technology and opportunities for hands-on learning." },
+    { name: "Vijay Sharma", course: "B.Sc. Nursing · 2017 batch", topic: "NURSING", image: "clinical.jpg", alt: "Clinical training at T.S. Mishra University", summary: "He values the nursing college’s infrastructure, teaching and clinical learning opportunities." },
+    { name: "Shivansh Mishra", course: "B.Sc. Nursing · 2023–24 batch", topic: "FACULTY & LEARNING", image: "hero-academics-official.webp", alt: "A student learning in a T.S. Mishra University laboratory", summary: "He appreciates the comprehensive curriculum, faculty investment and focus on compassionate care." },
+    { name: "Shreya Victor", course: "B.Sc. Nursing · 2023–24 batch", topic: "CAMPUS & RESEARCH", image: "campus-gallery-classroom.webp", alt: "Learning spaces at T.S. Mishra University", summary: "She highlights dedicated faculty, equipped labs, research opportunities and a vibrant campus." },
+    { name: "Rahul Yadav", course: "B.Sc. Nursing · 2023–24 batch", topic: "CLINICAL LEARNING", image: "clinical.jpg", alt: "Clinical learning at T.S. Mishra University", summary: "He describes hands-on clinical experience and faculty encouragement as important parts of his education." },
+    { name: "Sonali Singh", course: "B.Sc. Nursing · 2023–24 batch", topic: "CAMPUS COMMUNITY", image: "hero-campus-life-official.webp", alt: "T.S. Mishra University students enjoying campus life", summary: "She values the inclusive environment, faculty support and opportunities to explore interests beyond class." },
+    { name: "Dr. Ashish Shahi", course: "MBBS · 2018–19 batch", topic: "GROWTH & CONFIDENCE", image: "clinical.jpg", alt: "Clinical learning at T.S. Mishra University", summary: "He credits faculty and staff with helping him build professional skills, discipline and confidence." },
   ];
-  const t = testimonials[index]!;
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", containScroll: false });
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!emblaApi || paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => emblaApi.scrollNext(), 5000);
+    return () => window.clearInterval(timer);
+  }, [emblaApi, paused]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const updateIndex = () => setIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", updateIndex);
+    return () => { emblaApi.off("select", updateIndex); };
+  }, [emblaApi]);
+
   return (
-    <section className="testimonial-section">
-      <div className="container testimonial-layout">
-        <div>
-          <span className="eyebrow">THE TSM EXPERIENCE</span>
-          <h2>
-            In their
-            <br />
-            <em>own words.</em>
-          </h2>
-          <div className="carousel-controls">
-            <button aria-label="Previous testimonial" onClick={() => setIndex((index + 2) % 3)}>
-              <ChevronLeft size={19} />
-            </button>
-            <button aria-label="Next testimonial" onClick={() => setIndex((index + 1) % 3)}>
-              <ChevronRight size={19} />
-            </button>
-            <span>0{index + 1} / 03</span>
+    <section className="testimonial-section student-testimonial-section">
+      <div className="container student-testimonial-container">
+        <div className="student-testimonial-heading">
+          <div>
+            <span className="eyebrow">VOICES OF TSM</span>
+            <h2>Life at TSM, <em>in their words.</em></h2>
+            <p>Experiences shared by students across our campus.</p>
+          </div>
+          <div className="student-testimonial-controls">
+            <span>{String(index + 1).padStart(2, "0")} <i>/</i> {String(testimonials.length).padStart(2, "0")}</span>
+            <button type="button" aria-label="Previous student review" onClick={() => emblaApi?.scrollPrev()}><ChevronLeft size={19} /></button>
+            <button type="button" aria-label="Next student review" onClick={() => emblaApi?.scrollNext()}><ChevronRight size={19} /></button>
           </div>
         </div>
-        <div className="quote" aria-live="polite">
-          <span className="quote-mark">“</span>
-          <blockquote key={index}>{t.quote}</blockquote>
-          <p>{t.summary}</p>
-          <div className="quote-person">
-            <span>
-              {t.name
-                .split(" ")
-                .map((w) => w[0])
-                .slice(0, 2)
-                .join("")}
-            </span>
-            <div>
-              <strong>{t.name}</strong>
-              <small>Student, T.S. Mishra University</small>
-            </div>
-            <a
-              href="https://tsm.edu.in/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Read original student testimonial"
-            >
-              <ArrowUpRight size={20} />
-            </a>
+        <div
+          className="student-review-viewport"
+          ref={emblaRef}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false);
+          }}
+        >
+          <div className="student-review-track">
+            {testimonials.map((review, reviewIndex) => (
+              <div className="student-review-slide" key={review.name}>
+                <article className="student-review-card student-story-card">
+                  <div className="student-story-photo">
+                    <img src={`/images/${review.image}`} alt={review.alt} loading={reviewIndex < 2 ? "eager" : "lazy"} />
+                    <span>STUDENT STORIES <i>·</i> TSM</span>
+                  </div>
+                  <div className="student-story-content">
+                  <div className="student-review-card-top">
+                    <div className="student-review-identity">
+                      <span className="student-review-avatar" aria-hidden="true">
+                        {review.name.split(" ").map((word) => word[0]).slice(0, 2).join("")}
+                      </span>
+                      <div><strong>{review.name}</strong><small>{review.course}</small></div>
+                    </div>
+                    <img className="student-review-brand" src="/favicon.png" alt="T.S. Mishra University" />
+                  </div>
+                  <div className="student-review-label">STUDENT FEEDBACK <span>0{reviewIndex + 1}</span></div>
+                  <p className="student-review-summary">{review.summary}</p>
+                  <div className="student-review-bottom">
+                    <div className="student-review-topics"><span>{review.topic}</span></div>
+                    <a href="https://www.tsm.edu.in/student-feedback.aspx" target="_blank" rel="noreferrer">
+                      VIEW ON TSM <ArrowUpRight size={15} />
+                    </a>
+                  </div>
+                  </div>
+                </article>
+              </div>
+            ))}
           </div>
         </div>
+        <a className="student-testimonial-source" href="https://www.tsm.edu.in/student-feedback.aspx" target="_blank" rel="noreferrer">
+          Read more student feedback <ArrowUpRight size={15} />
+        </a>
       </div>
     </section>
   );
@@ -182,6 +203,11 @@ export function Home() {
       <MotionProvider>
         <SplitHero />
         <section className="university-overview section" id="introduction">
+          <div className="overview-curtain" aria-hidden="true">
+            <span className="overview-curtain-panel overview-curtain-left" />
+            <span className="overview-curtain-panel overview-curtain-right" />
+            <span className="overview-curtain-seam" />
+          </div>
           <div className="container university-overview-layout">
             <div className="university-overview-copy" data-reveal>
               <span className="eyebrow">YOUR UNIVERSITY, AT A GLANCE</span>
@@ -344,6 +370,38 @@ export function Home() {
             to="/schools"
           />
           <SchoolGrid />
+          <div className="school-feature-cards" aria-label="Explore university life">
+            <Link to="/schools" className="school-feature-card" data-school-feature-card>
+              <img src="/images/hero-academics-official.webp" alt="Students learning at T.S. Mishra University" loading="lazy" />
+              <span className="school-feature-number">01 / LEARN</span>
+              <div className="school-feature-copy">
+                <span>FIND YOUR DIRECTION</span>
+                <h3>Explore our schools.</h3>
+                <p>Find the discipline and programme that fits your ambition.</p>
+                <span className="school-feature-link">Explore all schools <ArrowUpRight size={18} /></span>
+              </div>
+            </Link>
+            <Link to="/student-life" className="school-feature-card" data-school-feature-card>
+              <img src="/images/hero-campus-life-official.webp" alt="Students sharing campus life at T.S. Mishra University" loading="lazy" />
+              <span className="school-feature-number">02 / BELONG</span>
+              <div className="school-feature-copy">
+                <span>MAKE THE MOST OF EVERY DAY</span>
+                <h3>Discover campus life.</h3>
+                <p>Meet your community and find the experiences that make university yours.</p>
+                <span className="school-feature-link">Discover student life <ArrowUpRight size={18} /></span>
+              </div>
+            </Link>
+            <Link to="/hospital" className="school-feature-card" data-school-feature-card>
+              <img src="/images/clinical.jpg" alt="Clinical training at T.S. Mishra University" loading="lazy" />
+              <span className="school-feature-number">03 / CARE</span>
+              <div className="school-feature-copy">
+                <span>LEARNING THAT MAKES A DIFFERENCE</span>
+                <h3>Care in action.</h3>
+                <p>Connect healthcare education with real clinical experience and compassionate care.</p>
+                <span className="school-feature-link">Explore our hospital <ArrowUpRight size={18} /></span>
+              </div>
+            </Link>
+          </div>
           <div className="schools-bottom">
             <p>
               From healing lives to shaping tomorrow's technology.

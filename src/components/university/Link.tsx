@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   "aria-label"?: string;
   "data-reveal"?: boolean;
+  "data-school-feature-card"?: boolean;
   "data-step"?: string;
 };
 export function Link({ to, children, ...props }: Props) {
