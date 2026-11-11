@@ -60,7 +60,7 @@ export function InnerHero({
           <p>{description}</p>
         </Entrance>
       </div>
-      <img src={"/images/" + image} alt="T.S. Mishra University campus and learning" />
+      <img src={"/images/" + image} alt="T.S. Mishra University campus and learning" data-image-motion />
     </section>
   );
 }
@@ -445,6 +445,7 @@ function Hospital() {
           src="/images/clinical.jpg"
           alt="Clinical education and healthcare at TSM"
           loading="lazy"
+          data-image-motion
         />
       </div>
       <div className="big-stats">
@@ -692,7 +693,7 @@ export function DetailPage({ path }: { path: string }) {
                   <span className="eyebrow">
                     {news.type} · {news.date}
                   </span>
-                  <img className="article-image" src={"/images/" + news.image} alt={news.title} />
+                  <img className="article-image" src={"/images/" + news.image} alt={news.title} data-image-motion />
                   <h2>{news.title}</h2>
                   <p>
                     {news.body ||
@@ -919,7 +920,7 @@ function Overview({ group }: { group: string }) {
               to embrace change.
             </p>
           </div>
-          <img src="/images/campus-students.webp" alt="Students learning at TSM" loading="lazy" />
+          <img src="/images/campus-students.webp" alt="Students learning at TSM" loading="lazy" data-image-motion />
         </div>
       )}
       {group === "academics" && (
@@ -974,7 +975,7 @@ function Overview({ group }: { group: string }) {
             ["classroom.jpg", "Find your community.", "campus-facilities"],
           ].map(([img, title, slug]) => (
             <Link to={`/student-life/${slug}`} key={title}>
-              <img src={"/images/" + img} alt={title + " at TSM"} loading="lazy" />
+              <img src={"/images/" + img} alt={title + " at TSM"} loading="lazy" data-image-motion />
               <h2>
                 {title}
                 <ArrowUpRight size={24} />

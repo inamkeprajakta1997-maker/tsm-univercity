@@ -51,6 +51,22 @@ export function MotionProvider({ children }: { children: ReactNode }) {
           },
         );
       });
+      gsap.utils.toArray<HTMLImageElement>("[data-image-motion]").forEach((img, index) => {
+        gsap.fromTo(
+          img,
+          { y: 22, scale: 0.965, autoAlpha: 0.72 },
+          {
+            y: 0,
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.85,
+            delay: Math.min(index % 4, 3) * 0.07,
+            ease: "power2.out",
+            clearProps: "transform,opacity,visibility",
+            scrollTrigger: { trigger: img, start: "top 96%", once: true },
+          },
+        );
+      });
     }, root);
     return () => {
       cancelAnimationFrame(frame);

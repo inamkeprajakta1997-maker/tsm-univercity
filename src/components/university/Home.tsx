@@ -157,6 +157,7 @@ export function Home() {
               src="/images/campus-students.webp"
               alt="TSM medical students in the college"
               loading="lazy"
+              data-image-motion
             />
             <div className="intro-tag">
               <BookOpen size={25} />
@@ -189,10 +190,14 @@ export function Home() {
                   to={`/programs/${p.name.toLowerCase()}`}
                   key={p.name}
                   className="program-path"
+                  data-step={p.no}
                   data-reveal
                 >
-                  <span>{p.no}</span>
-                  <div>
+                  <span className="program-path-number" aria-hidden="true">{p.no}</span>
+                  <div className="program-path-copy">
+                    <span className="program-path-stage">
+                      {p.no === "01" ? "START HERE" : p.no === "02" ? "BUILD YOUR BASE" : p.no === "03" ? "GO FURTHER" : "PURSUE DISCOVERY"}
+                    </span>
                     <h3>
                       {p.name}
                       <br />
@@ -200,7 +205,9 @@ export function Home() {
                     </h3>
                     <p>{p.desc}</p>
                   </div>
-                  <ArrowUpRight size={27} />
+                  <span className="program-path-arrow" aria-hidden="true">
+                    <ArrowUpRight size={21} />
+                  </span>
                 </Link>
               ))}
             </div>
@@ -228,43 +235,64 @@ export function Home() {
         </section>
         <section className="why-section section">
           <div className="container">
-            <SectionTitle
-              label="THE TSM DIFFERENCE"
-              title="An education that"
-              italic="goes beyond."
-            />
-            <div className="why-grid">
+            <div className="why-showcase-heading" data-reveal>
+              <span className="eyebrow">THE TSM DIFFERENCE</span>
+              <h2>
+                An education that <em>goes beyond.</em>
+              </h2>
+              <p>Explore the experiences that shape confident, capable graduates.</p>
+            </div>
+            <div className="why-tile-grid">
               {[
                 {
                   icon: BookOpen,
                   title: "Learn with purpose",
                   text: "Explore academic knowledge through practical learning and experienced faculty.",
                   to: "/academics",
+                  image: "hero-academics-official.webp",
+                  label: "ACADEMICS",
                 },
                 {
                   icon: Globe2,
                   title: "Connect to opportunity",
                   text: "Discover career counselling, industry exposure, and training and placement support.",
                   to: "/student-life/training-and-placements",
+                  image: "labs.jpg",
+                  label: "YOUR FUTURE",
                 },
                 {
                   icon: HeartPulse,
                   title: "Make a real difference",
                   text: "Connect healthcare education with clinical experience at our teaching hospital.",
                   to: "/hospital",
+                  image: "clinical.jpg",
+                  label: "CARE IN ACTION",
                 },
                 {
                   icon: Sparkles,
                   title: "Become your best self",
                   text: "Find room to grow through sports, student activities, and campus experiences.",
                   to: "/student-life",
+                  image: "events.jpg",
+                  label: "CAMPUS LIFE",
                 },
-              ].map((x) => (
-                <Link to={x.to} className="why-item" key={x.title} data-reveal>
-                  <x.icon strokeWidth={1.2} size={32} />
-                  <h3>{x.title}</h3>
-                  <p>{x.text}</p>
-                  <ArrowUpRight size={20} />
+              ].map((x, i) => (
+                <Link to={x.to} className="why-tile" key={x.title} data-reveal>
+                  <div className="why-tile-visual">
+                    <img src={`/images/${x.image}`} alt="" loading="lazy" data-image-motion />
+                    <span className="why-tile-label">{x.label}</span>
+                    <span className="why-tile-count">0{i + 1}</span>
+                    <x.icon className="why-tile-icon" strokeWidth={1.5} size={27} aria-hidden="true" />
+                  </div>
+                  <div className="why-tile-content">
+                    <div>
+                      <h3>{x.title}</h3>
+                      <p>{x.text}</p>
+                    </div>
+                    <span className="why-tile-arrow" aria-hidden="true">
+                      <ArrowUpRight size={20} />
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>
@@ -273,7 +301,7 @@ export function Home() {
         <CampusGallery />
         <section className="section hospital-section container">
           <div className="hospital-photo" data-reveal>
-            <img src="/images/clinical.jpg" alt="Clinical learning at TSM" loading="lazy" />
+            <img src="/images/clinical.jpg" alt="Clinical learning at TSM" loading="lazy" data-image-motion />
             <span className="image-caption">COMPASSION IN PRACTICE</span>
           </div>
           <div data-reveal>
@@ -345,7 +373,7 @@ export function Home() {
                 ],
               ].map(([title, img, slug, desc]) => (
                 <Link to={`/academics/${slug}`} className="research-card" key={title} data-reveal>
-                  <img src={"/images/" + img} alt={title + " at TSM"} loading="lazy" />
+                  <img src={"/images/" + img} alt={title + " at TSM"} loading="lazy" data-image-motion />
                   <div>
                     <h3>
                       {title}

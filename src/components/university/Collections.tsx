@@ -43,7 +43,7 @@ export function SchoolGrid({ limit }: { limit?: number }) {
       {data.schools.slice(0, limit).map((s, i) => (
         <Link className="school-card" to={`/schools/${s.slug}`} key={s.slug} data-reveal>
           <div className="school-image">
-            <img src={"/images/" + s.image} alt={s.name + " at TSM"} loading="lazy" />
+            <img src={"/images/" + s.image} alt={s.name + " at TSM"} loading="lazy" data-image-motion />
             <span className="school-number">0{i + 1}</span>
             <span className="circle-arrow">
               <ArrowUpRight size={20} />
@@ -65,7 +65,7 @@ export function NewsGrid({ limit = 3, filter = "All" }: { limit?: number; filter
         .map((n) => (
           <Link to={`/news/${n.slug}`} className="news-card" key={n.slug}>
             <div className="news-image">
-              <img src={"/images/" + n.image} alt={n.title} loading="lazy" />
+              <img src={"/images/" + n.image} alt={n.title} loading="lazy" data-image-motion />
               <span>{n.type}</span>
             </div>
             <div className="news-meta">{n.date.replace("'", " ")}</div>
