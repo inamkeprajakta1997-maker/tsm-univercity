@@ -2,7 +2,7 @@ import { CampusGallery } from "./CampusGallery";
 import { SectionTitle, SchoolGrid } from "./Collections";
 import { EventsShowcase } from "./EventsShowcase";
 import { Link } from "./Link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   ChevronLeft,
@@ -10,13 +10,16 @@ import {
   BookOpen,
   Globe2,
   HeartPulse,
+  Play,
   Sparkles,
+  X,
 } from "lucide-react";
 import { Shell, ButtonLink } from "./Layout";
 import { MotionProvider } from "./Motion";
 import { SplitHero } from "./SplitHero";
 import { OpeningIntro } from "./OpeningIntro";
 import { AdmissionsPopup } from "./AdmissionsPopup";
+import university from "../../data/university.json";
 function Testimonials() {
   const [index, setIndex] = useState(0);
   const testimonials = [
@@ -90,15 +93,144 @@ function Testimonials() {
     </section>
   );
 }
+
+function CampusVideoDialog({ onClose }: { onClose: () => void }) {
+  const closeButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    closeButton.current?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      previousFocus?.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="campus-video-backdrop"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <section className="campus-video-dialog" role="dialog" aria-modal="true" aria-labelledby="campus-video-title">
+        <div className="campus-video-dialog-heading">
+          <div>
+            <span>DISCOVER T.S. MISHRA UNIVERSITY</span>
+            <h2 id="campus-video-title">Take a look around campus</h2>
+            <a href="https://www.youtube.com/watch?v=tbIFtGQFQ1A" target="_blank" rel="noreferrer">
+              Open on YouTube <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+          <button ref={closeButton} type="button" onClick={onClose} aria-label="Close campus tour">
+            <X size={22} />
+          </button>
+        </div>
+        <div className="campus-video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/tbIFtGQFQ1A?autoplay=1&rel=0&playsinline=1"
+            title="T.S. Mishra University Lucknow Campus Tour 2026"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export function Home() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [campusVideoOpen, setCampusVideoOpen] = useState(false);
   const handleIntroComplete = useCallback(() => setIntroComplete(true), []);
+  const closeCampusVideo = useCallback(() => setCampusVideoOpen(false), []);
   return (
     <Shell>
       <OpeningIntro onComplete={handleIntroComplete} />
       <AdmissionsPopup ready={introComplete} />
       <MotionProvider>
         <SplitHero />
+        <section className="university-overview section" id="introduction">
+          <div className="container university-overview-layout">
+            <div className="university-overview-copy" data-reveal>
+              <span className="eyebrow">YOUR UNIVERSITY, AT A GLANCE</span>
+              <h2>
+                One university.
+                <br />
+                A future of <em>possibilities.</em>
+              </h2>
+              <p className="lead">
+                A place for students to find their direction and families to feel confident about
+                what comes next.
+              </p>
+              <p>
+                Eight schools bring together 150+ programmes across healthcare,
+                technology, management, law, and more. Students learn through academic study,
+                practical experience, campus life, and a teaching hospital.
+              </p>
+              <div className="university-overview-stats" aria-label="T.S. Mishra University at a glance">
+                <div>
+                  <strong>{String(university.schools.length).padStart(2, "0")}</strong>
+                  <span>schools</span>
+                </div>
+                <div>
+                  <strong>150+</strong>
+                  <span>programmes</span>
+                </div>
+                <div>
+                  <strong>01</strong>
+                  <span>teaching hospital</span>
+                </div>
+              </div>
+              <div className="university-overview-links">
+                <Link to="/schools" className="overview-audience-link">
+                  <span>FOR STUDENTS</span>
+                  <strong>Find your programme and school</strong>
+                  <ArrowUpRight size={19} aria-hidden="true" />
+                </Link>
+                <Link to="/admissions" className="overview-audience-link">
+                  <span>FOR PARENTS & FAMILIES</span>
+                  <strong>Explore admissions and university life</strong>
+                  <ArrowUpRight size={19} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+            <figure className="university-overview-visual" data-reveal>
+              <button
+                className="campus-video-trigger"
+                type="button"
+                onClick={() => setCampusVideoOpen(true)}
+                aria-label="Play the official T.S. Mishra University campus tour"
+              >
+                <img
+                  src="https://img.youtube.com/vi/tbIFtGQFQ1A/maxresdefault.jpg"
+                  alt=""
+                  loading="lazy"
+                  data-image-motion
+                  onError={(event) => {
+                    event.currentTarget.src = "/images/campus-hero.webp";
+                  }}
+                />
+                <span className="campus-video-shade" aria-hidden="true" />
+                <span className="campus-video-play" aria-hidden="true">
+                  <Play size={28} fill="currentColor" />
+                </span>
+              </button>
+              <figcaption>
+                <span>ONE CAMPUS. MANY POSSIBILITIES.</span>
+                <strong>T.S. Mishra University · Lucknow</strong>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        {campusVideoOpen && <CampusVideoDialog onClose={closeCampusVideo} />}
         <section className="next-step-band" aria-labelledby="next-step-title">
           <div className="next-step-heading">
             <span className="eyebrow">YOUR AMBITION. OUR COMMITMENT.</span>
@@ -130,45 +262,6 @@ export function Home() {
               <ArrowUpRight className="next-step-arrow" size={23} aria-hidden="true" />
             </Link>
           </nav>
-        </section>
-        <section className="section container intro-section" id="introduction">
-          <div className="intro-copy" data-reveal>
-            <span className="eyebrow">WELCOME TO T.S. MISHRA UNIVERSITY</span>
-            <h2>
-              Great futures begin
-              <br />
-              with <em>great foundations.</em>
-            </h2>
-            <p className="lead">
-              More than an education.
-              <br />A way to discover who you can become.
-            </p>
-            <p>
-              Established in memory of Justice Tribeni Sahai Misra, our university brings together
-              knowledge, character, and a commitment to society. Here, tradition meets new thinking,
-              and learning reaches beyond the classroom.
-            </p>
-            <Link to="/about" className="text-link">
-              Get to know TSM <ArrowUpRight size={17} />
-            </Link>
-          </div>
-          <div className="intro-visual" data-reveal>
-            <img
-              src="/images/campus-students.webp"
-              alt="TSM medical students in the college"
-              loading="lazy"
-              data-image-motion
-            />
-            <div className="intro-tag">
-              <BookOpen size={25} />
-              <span>
-                Learning for life.
-                <br />
-                <strong>Leading with purpose.</strong>
-              </span>
-            </div>
-            <span className="image-caption">A COMMUNITY BUILT AROUND YOUR POTENTIAL</span>
-          </div>
         </section>
         <section className="program-section section">
           <div className="container">
