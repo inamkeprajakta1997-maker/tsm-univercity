@@ -6348,6 +6348,9 @@ a:hover img[data-image-motion] {
 .university-overview {
   background: #f5f8fa;
 }
+.university-overview.section {
+  padding-block: clamp(40px, 5vw, 68px);
+}
 .university-overview-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
@@ -6361,7 +6364,7 @@ a:hover img[data-image-motion] {
   margin: 0 0 21px;
   color: #123d5c;
   font-family: var(--font-heading);
-  font-size: clamp(42px, 4.6vw, 65px);
+  font-size: clamp(40px, 4vw, 56px);
   line-height: 1.1;
 }
 .university-overview-copy h2 em {
@@ -6460,29 +6463,56 @@ a:hover img[data-image-motion] {
   position: relative;
   min-width: 0;
   margin: 0;
-  padding: 0 0 18px 24px;
+  padding: 0;
 }
 .university-overview-visual::before {
+  content: none;
+}
+.campus-video-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  padding: clamp(18px, 2.1vw, 30px);
+  overflow: hidden;
+  background: #0b3551;
+  border: 1px solid #f5bb29;
+  box-shadow: 0 20px 50px #123d5c24;
+}
+.campus-ambient-video {
   position: absolute;
-  inset: 20px 0 auto 48px;
-  height: calc(100% - 78px);
-  content: "";
-  background: #f5bb29;
+  inset: 0;
+  overflow: hidden;
+  background: #0d4268 url("/images/campus-hero.webp") center / cover no-repeat;
+}
+.campus-ambient-video > iframe {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  pointer-events: none;
+  border: 0;
+}
+.campus-ambient-video > span {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #082d496b, #082d4938 55%, #061c2d88);
 }
 .campus-video-trigger {
   position: relative;
   z-index: 1;
-  display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
   padding: 0;
   overflow: hidden;
   color: #fff;
   text-align: left;
   background: #0b3551;
-  border: 0;
-  box-shadow: 0 20px 50px #123d5c24;
+  border: 1px solid #ffffff76;
+  box-shadow: 0 12px 28px #031b2c45;
   cursor: pointer;
 }
 .campus-video-trigger > img {
@@ -6532,7 +6562,7 @@ a:hover img[data-image-motion] {
 .university-overview-visual figcaption {
   display: grid;
   gap: 4px;
-  padding: 13px 0 0 24px;
+  padding: 11px 0 0;
   color: #466274;
 }
 .university-overview-visual figcaption > span {
@@ -6586,13 +6616,15 @@ a:hover img[data-image-motion] {
     max-width: 720px;
   }
   .campus-video-trigger {
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 100%;
   }
 }
 @media (max-width: 600px) {
+  .university-overview.section {
+    padding-block: 42px;
+  }
   .university-overview-copy h2 {
-    font-size: 39px;
+    font-size: 37px;
   }
   .university-overview-copy .lead {
     font-size: 17px;
@@ -6616,19 +6648,20 @@ a:hover img[data-image-motion] {
     min-height: 78px;
   }
   .university-overview-visual {
-    padding: 18px 0 12px 16px;
+    padding: 0;
   }
   .university-overview-visual::before {
-    inset: 25px 0 auto 32px;
-    height: calc(100% - 65px);
+    content: none;
+  }
+  .campus-video-stage {
+    min-height: 210px;
+    padding: 13px;
   }
   .campus-video-trigger {
-    height: auto;
-    min-height: 210px;
-    aspect-ratio: 16 / 9;
+    height: 100%;
   }
   .university-overview-visual figcaption {
-    padding-left: 16px;
+    padding-left: 0;
   }
   .campus-video-play {
     width: 68px;

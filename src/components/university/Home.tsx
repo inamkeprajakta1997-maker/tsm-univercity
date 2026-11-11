@@ -146,6 +146,30 @@ function CampusVideoDialog({ onClose }: { onClose: () => void }) {
   );
 }
 
+function CampusAmbientVideo() {
+  const [playAmbient, setPlayAmbient] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePlayback = () => setPlayAmbient(!reducedMotion.matches);
+    updatePlayback();
+    reducedMotion.addEventListener("change", updatePlayback);
+    return () => reducedMotion.removeEventListener("change", updatePlayback);
+  }, []);
+
+  if (!playAmbient) return null;
+  return (
+    <iframe
+      src="https://www.youtube.com/embed/tbIFtGQFQ1A?autoplay=1&mute=1&controls=0&loop=1&playlist=tbIFtGQFQ1A&playsinline=1&disablekb=1&modestbranding=1"
+      title="Muted ambient T.S. Mishra University campus tour"
+      tabIndex={-1}
+      allow="autoplay; encrypted-media"
+      referrerPolicy="strict-origin-when-cross-origin"
+      loading="lazy"
+    />
+  );
+}
+
 export function Home() {
   const [introComplete, setIntroComplete] = useState(false);
   const [campusVideoOpen, setCampusVideoOpen] = useState(false);
@@ -164,16 +188,15 @@ export function Home() {
               <h2>
                 One university.
                 <br />
-                A future of <em>possibilities.</em>
+                Many <em>possibilities.</em>
               </h2>
               <p className="lead">
-                A place for students to find their direction and families to feel confident about
-                what comes next.
+                A place where students build their future—and families can see what comes next.
               </p>
               <p>
                 Eight schools bring together 150+ programmes across healthcare,
-                technology, management, law, and more. Students learn through academic study,
-                practical experience, campus life, and a teaching hospital.
+                technology, management, law, and more. Discover practical learning, campus life,
+                and our teaching hospital.
               </p>
               <div className="university-overview-stats" aria-label="T.S. Mishra University at a glance">
                 <div>
@@ -203,26 +226,32 @@ export function Home() {
               </div>
             </div>
             <figure className="university-overview-visual" data-reveal>
-              <button
-                className="campus-video-trigger"
-                type="button"
-                onClick={() => setCampusVideoOpen(true)}
-                aria-label="Play the official T.S. Mishra University campus tour"
-              >
-                <img
-                  src="https://img.youtube.com/vi/tbIFtGQFQ1A/maxresdefault.jpg"
-                  alt=""
-                  loading="lazy"
-                  data-image-motion
-                  onError={(event) => {
-                    event.currentTarget.src = "/images/campus-hero.webp";
-                  }}
-                />
-                <span className="campus-video-shade" aria-hidden="true" />
-                <span className="campus-video-play" aria-hidden="true">
-                  <Play size={28} fill="currentColor" />
-                </span>
-              </button>
+              <div className="campus-video-stage">
+                <div className="campus-ambient-video" aria-hidden="true">
+                  <CampusAmbientVideo />
+                  <span />
+                </div>
+                <button
+                  className="campus-video-trigger"
+                  type="button"
+                  onClick={() => setCampusVideoOpen(true)}
+                  aria-label="Play the official T.S. Mishra University campus tour"
+                >
+                  <img
+                    src="https://img.youtube.com/vi/tbIFtGQFQ1A/maxresdefault.jpg"
+                    alt=""
+                    loading="lazy"
+                    data-image-motion
+                    onError={(event) => {
+                      event.currentTarget.src = "/images/campus-hero.webp";
+                    }}
+                  />
+                  <span className="campus-video-shade" aria-hidden="true" />
+                  <span className="campus-video-play" aria-hidden="true">
+                    <Play size={28} fill="currentColor" />
+                  </span>
+                </button>
+              </div>
               <figcaption>
                 <span>ONE CAMPUS. MANY POSSIBILITIES.</span>
                 <strong>T.S. Mishra University · Lucknow</strong>
