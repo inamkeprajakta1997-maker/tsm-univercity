@@ -318,11 +318,11 @@ svg {
   right: 0;
   top: 100%;
   background: var(--ivory);
-  padding: 40px 60px;
+  padding: 28px 48px;
   box-shadow: 0 18px 30px #0d3c6018;
   display: grid;
   grid-template-columns: 250px 1fr;
-  gap: 50px;
+  gap: 34px;
   border-top: 1px solid var(--line);
   max-height: 70vh;
   overflow: auto;
@@ -339,14 +339,14 @@ svg {
 .mega-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3px 26px;
+  gap: 0 22px;
 }
 .mega-links a {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   border-bottom: 1px solid var(--line);
-  padding: 13px 0;
+  padding: 8px 0;
   font-size: 16px;
 }
 .mega-links a:hover {
@@ -1766,7 +1766,7 @@ footer {
   }
   .mega-menu {
     position: static;
-    padding: 20px 0;
+    padding: 12px 0;
     box-shadow: none;
     display: block;
     border: 0;
@@ -1777,10 +1777,11 @@ footer {
   }
   .mega-links {
     grid-template-columns: 1fr 1fr;
-    gap: 0 20px;
+    gap: 0 14px;
   }
   .mega-links a {
     font-size: 15px;
+    padding-block: 8px;
   }
   .nav-apply {
     font-size: 15px;
