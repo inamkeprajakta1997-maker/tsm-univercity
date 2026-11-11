@@ -1,0 +1,37 @@
+[
+  {
+    "name": "campus-gallery-classroom.webp",
+    "url": "https://tsm.edu.in/assets/all-img/CAMPUS%20FACILITIES/LECTURE%20THEATRE%20&%20CLASS%20ROOMS/DSC_0812.JPG",
+    "source": "https://tsm.edu.in/lecture.aspx",
+    "width": 3008,
+    "height": 2008
+  },
+  {
+    "name": "campus-gallery-library.webp",
+    "url": "https://tsm.edu.in/assets/all-img/CAMPUS%20FACILITIES/LIBRARY/DSC_0206.JPG",
+    "source": "https://tsm.edu.in/gallery.aspx",
+    "width": 3008,
+    "height": 2008
+  },
+  {
+    "name": "campus-gallery-celebrations.webp",
+    "url": "https://tsm.edu.in/assets/news-events/Farewell-party1_2026.jpg",
+    "source": "https://tsm.edu.in/Farewell-party2026.aspx",
+    "width": 552,
+    "height": 553
+  },
+  {
+    "name": "campus-gallery-hostel.webp",
+    "url": "https://tsm.edu.in/assets/all-img/CAMPUS%20FACILITIES/HOSTEL/DSC_8906.JPG",
+    "source": "https://tsm.edu.in/gallery.aspx",
+    "width": 3024,
+    "height": 2012
+  },
+  {
+    "name": "campus-gallery-creativity.webp",
+    "url": "https://tsm.edu.in/assets/images/health.jpg",
+    "source": "https://tsm.edu.in/student-life.aspx",
+    "width": 584,
+    "height": 445
+  }
+]

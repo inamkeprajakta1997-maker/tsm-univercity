@@ -1,0 +1,32 @@
+[
+  {
+    "id": 11,
+    "name": "hero-academics-official.webp",
+    "use": "Academics hero",
+    "alt": "A T.S. Mishra University student working in the laboratory",
+    "source": "https://tsm.edu.in/lecture.aspx",
+    "originalUrl": "https://tsm.edu.in/assets/all-img/CAMPUS%20FACILITIES/LABORATORY/3.jpg",
+    "originalWidth": 1512,
+    "originalHeight": 1006
+  },
+  {
+    "id": 30,
+    "name": "hero-campus-life-official.webp",
+    "use": "Campus Life hero",
+    "alt": "T.S. Mishra University students playing kabaddi on campus",
+    "source": "https://tsm.edu.in/lecture.aspx",
+    "originalUrl": "https://tsm.edu.in/assets/all-img/SPORTS/KABADDI/DSC_2961.JPG",
+    "originalWidth": 2400,
+    "originalHeight": 1500
+  },
+  {
+    "id": 36,
+    "name": "hero-events-official.webp",
+    "use": "Events hero",
+    "alt": "T.S. Mishra University students taking part in a face-painting activity",
+    "source": "https://tsm.edu.in/activities-new.aspx",
+    "originalUrl": "https://erp.tsm.edu.in/Upload/Website/ActivitiesEvents/Web_ActvtiEvnt_639001994809689857.jpg",
+    "originalWidth": 1080,
+    "originalHeight": 1080
+  }
+]

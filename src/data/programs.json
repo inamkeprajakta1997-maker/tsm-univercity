@@ -1,0 +1,450 @@
+[
+  {
+    "name": "DMLT (Diploma in Medical Laboratory Technician)",
+    "duration": "2 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "DOTT (Diploma in Operation Theatre Technician)",
+    "duration": "2 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "DDT (Diploma in Dialysis Technician)",
+    "duration": "2 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "D.Pharm (Diploma in Pharmacy)",
+    "duration": "2 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "pharmacy"
+  },
+  {
+    "name": "ANM (Auxiliary Nursing Midwifery)",
+    "duration": "2 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "GNM (General Nursing Midwifery)",
+    "duration": "3 YEARS",
+    "level": "Diploma",
+    "source": "https://tsm.edu.in/diploma-programs.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "MBBS",
+    "duration": "4.5 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "B.Sc. Nursing",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "PB B.Sc Nursing",
+    "duration": "2 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "BBA",
+    "duration": "3 YEARS / 4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "BBA (Digital Marketing)",
+    "duration": "3 YEARS / 4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "B.Com (FinTech)",
+    "duration": "3 YEARS / 4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "B.Com(Hons.) - Integrated with ACCA, U.K.",
+    "duration": "3 YEARS / 4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "⁠B.Com.(Hons.) - Integrated with CFA, U. S. A.",
+    "duration": "3 YEARS / 4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "LLB",
+    "duration": "3 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "law"
+  },
+  {
+    "name": "BBA LLB",
+    "duration": "5 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "law"
+  },
+  {
+    "name": "BA LLB",
+    "duration": "5 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "law"
+  },
+  {
+    "name": "BMLS (Bachelor in Medical Laboratory Science)",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "BPT (Bachelors in Physiotherapy)",
+    "duration": "5 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "BMRIT (Bachelor in Medical Radiology and Imaging Technology)",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "BOPTOM (Bachelor in Optometry)",
+    "duration": "5 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "BFS (Bachelor of Science in Forensic Science)",
+    "duration": "3 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "B.Pharm (Bachelors in Pharmacy)",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "pharmacy"
+  },
+  {
+    "name": "B.Tech Computer Science & Engineering",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "computer-science-and-artificial-intelligence"
+  },
+  {
+    "name": "B.Tech Computer Science & Engineering (Lateral Entry)",
+    "duration": "3 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "computer-science-and-artificial-intelligence"
+  },
+  {
+    "name": "BCA (AI/ML Specialization)",
+    "duration": "3 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "computer-science-and-artificial-intelligence"
+  },
+  {
+    "name": "B.Sc Nursing - Ayurveda",
+    "duration": "4 YEARS",
+    "level": "Undergraduate",
+    "source": "https://tsm.edu.in/ug.aspx",
+    "school": "ayurveda"
+  },
+  {
+    "name": "MD-GENERAL MEDICINE",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-PAEDIATRICS",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-RESPIRATORY MEDICINE",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-DERMATOLOGY V & L",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MS-GENERAL SURGERY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MS-ORTHOPAEDICS",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MS-ENT",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MS-OPHTHALMOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-ANAESTHESIOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-RADIO-DIAGNOSIS",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MS-OBSTETRICS & GYNAECOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-PATHOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-BIOCHEMISTRY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-PHARMACOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-MICROBIOLOGY",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "MD-COMMUNITY MEDICINE",
+    "duration": "3 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "M.Sc MEDICAL SURGICAL NURSING (MSN)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "M.Sc MENTAL HEALTH NURING (MHN)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "M.Sc COMMUNITY HEALTH NURSING (CHN)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "M.Sc OBSTETRICS & GYNECOLOGY NURSING (OBG)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "M.Sc CHILD HEALTH NURSING (CHN)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "nursing"
+  },
+  {
+    "name": "MCA (Master of Computer Applications)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "computer-science-and-artificial-intelligence"
+  },
+  {
+    "name": "M.Tech Computer Science & Engineering",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "computer-science-and-artificial-intelligence"
+  },
+  {
+    "name": "MBA (Dual Specialization)",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "MBA - Hospital Management",
+    "duration": "2 YEARS",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "business-management"
+  },
+  {
+    "name": "LL.M (Constitutional and Administrative Law)",
+    "duration": "1 YEAR",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "law"
+  },
+  {
+    "name": "LL.M (Criminal and Security Law)",
+    "duration": "1 YEAR",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "law"
+  },
+  {
+    "name": "LL.M (Corporate and Cyber Law)",
+    "duration": "1 YEAR",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "law"
+  },
+  {
+    "name": "M.Sc. Forensic Science",
+    "duration": "2 YEAR",
+    "level": "Postgraduate",
+    "source": "https://tsm.edu.in/pg.aspx",
+    "school": "allied-and-healthcare-sciences"
+  },
+  {
+    "name": "ANATOMY",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "PHYSIOLOGY",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "PHARMACOLOGY",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "BIOCHEMISTRY",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "COMMUNITY MEDICINE",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "medicine"
+  },
+  {
+    "name": "PHARMACEUTICAL SCIENCE",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "pharmacy"
+  },
+  {
+    "name": "LAW",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "law"
+  },
+  {
+    "name": "MANAGEMENT",
+    "duration": "3 YEARS",
+    "level": "Doctoral",
+    "source": "https://tsm.edu.in/Doctoral-program.aspx",
+    "school": "business-management"
+  }
+]
